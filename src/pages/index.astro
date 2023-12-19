@@ -1,9 +1,32 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Welcome to the Edmonton Data Science Community!";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-
+  <!-- Slideshow of images from past meetups -->
+  <div class="has-text-centered">
+      <div class="block"></div>
+    
+      <!-- Quick overview of community -->
+      <div class="block"></div>
+    
+      <!-- Become involved -->
+      <div class="block"></div>
+    
+      <!-- Sponsors -->
+      <div class="block">
+        <div class="container">
+            <div class="columns">
+              <div class="column">
+                <h3>AltaML</h3>
+              </div>
+              <div class="column">
+                <h3>KPMG</h3>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
 </BaseLayout>
