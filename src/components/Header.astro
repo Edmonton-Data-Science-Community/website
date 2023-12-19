@@ -1,0 +1,40 @@
+---
+const logoPath = "./src/assets/cropped-logo.png";
+---
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="header-logo" src={logoPath}/>
+    </a>
+
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="edsc-navbar"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="edsc-navbar" class="navbar-menu">
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <a href="/meetups/">Meetups</a>
+        </div>
+        <div class="navbar-item">
+            <a href="/resources/">Resources</a>
+        </div>
+        <div class="navbar-item">
+            <a href="/involved/">Get Involved!</a>
+        </div>
+        <div class="navbar-item">
+            <a href="/faq/">FAQ</a>
+        </div>
+      </div>
+  </div>
+</nav>
