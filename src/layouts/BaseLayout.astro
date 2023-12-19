@@ -14,16 +14,22 @@ const { pageTitle } = Astro.props;
     <title>Hello Bulma!</title>
   </head>
   <body>
-    <Header />
-    <section class="section">
-      <div class="container has-text-centered">
-        <h1 class="title">
-          {pageTitle}
-        </h1>
-      </div>
-    </section>
+    <!-- Making footer stick to the bottom of the page -->
+    <!-- https://blog.cetindere.de/make-footers-stick-to-the-bottom-of-the-page-in-bulma/ -->
 
-    <slot />
-    <Footer />
+    <div class="columns is-flex-direction-column is-fullheight-100vh">
+      <Header class="column is-narrow" />
+
+      <div class="column">
+        <div class="column has-text-centered">
+          <h1 class="title">
+            {pageTitle}
+          </h1>
+        </div>
+        <slot />
+      </div>
+
+      <Footer class="column is-narrow" />
+    </div>
   </body>
 </html>
