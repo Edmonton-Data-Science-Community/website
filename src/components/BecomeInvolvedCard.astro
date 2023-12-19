@@ -1,0 +1,27 @@
+---
+
+const { title, link, linkText} = Astro.props;
+---
+
+<div class="involved-card">
+    <h4>{title}</h4>
+    <slot />
+
+    <a class="button" href={link}>{linkText}</a>
+</div>
+
+<style>
+    .involved-card {
+        background-color: #BDE3FF;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .button {
+        background-color: #F55009;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+</style>

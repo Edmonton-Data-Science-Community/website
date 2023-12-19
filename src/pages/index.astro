@@ -1,5 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BecomeInvolvedCard from "../components/BecomeInvolvedCard.astro";
+import DiscordLogo from "../assets/dc.png";
+import AltaML_Logo from "../assets/altaml_logo.jpg";
+import KPMG_Logo from "../assets/kpmg_logo.jpg";
+import { Image } from "astro:assets";
+import SponsorshipCard from "../components/SponsorshipCard.astro";
 
 const pageTitle = "Welcome to the Edmonton Data Science Community!";
 ---
@@ -7,26 +13,123 @@ const pageTitle = "Welcome to the Edmonton Data Science Community!";
 <BaseLayout pageTitle={pageTitle}>
   <!-- Slideshow of images from past meetups -->
   <div class="has-text-centered">
-      <div class="block"></div>
-    
-      <!-- Quick overview of community -->
-      <div class="block"></div>
-    
-      <!-- Become involved -->
-      <div class="block"></div>
-    
-      <!-- Sponsors -->
-      <div class="block">
-        <div class="container">
-            <div class="columns">
-              <div class="column">
-                <h3>AltaML</h3>
-              </div>
-              <div class="column">
-                <h3>KPMG</h3>
-              </div>
-            </div>
+    <div class="block"></div>
+
+    <!-- Quick overview of community -->
+    <div class="block index-block" id="community-overview-block">
+      <div class="content">
+        <div class="content">
+          <h3 class="subtitle">What is the Edmonton Data Science Community?</h3>
+        </div>
+        <div class="content is-medium">
+          <p>
+            The Edmonton Data Science Community is a group of data science
+            enthusiasts who meet regularly to discuss data science topics,
+            network, and learn from each other. We are a community of
+            professionals, academics, and students who are passionate about data
+            science and its applications.
+          </p>
+        </div>
+        <div class="content is-medium">
+          <p>Join us on Discord!<br /></p>
+          <a href="/#">
+            <!-- TODO: DISCORD LINK -->
+            <Image
+              src={DiscordLogo}
+              width="64"
+              height="64"
+              alt="Edmonton Data Science Community - Discord"
+            /></a
+          >
         </div>
       </div>
+    </div>
+
+    <!-- Become involved -->
+    <div class="block index-block">
+      <div class="content">
+        <h3 class="subtitle">Become Involved!</h3>
+        <div class="columns">
+          <div class="column">
+            <BecomeInvolvedCard
+              title="As a Community Member"
+              link="/meetups"
+              linkText="Become a Member!"
+            >
+              <p>
+                Our community is open to anyone who is interested in data
+                science. We welcome students, academics, and professionals
+                alike. Join us on Discord to learn more about our community and
+                upcoming events!
+              </p>
+            </BecomeInvolvedCard>
+          </div>
+          <div class="column">
+            <BecomeInvolvedCard
+              title="As a Speaker"
+              link="/meetups"
+              linkText="Speak at a Meetup!"
+            >
+              <p>
+                Speakers anchor our meetups, providing our members with the
+                opportunity to learn about the latest technologies and
+                applications in data science. Whether you are a student,
+                academic, or professional, we would love to hear from you!
+              </p>
+            </BecomeInvolvedCard>
+          </div>
+          <div class="column">
+            <BecomeInvolvedCard
+              title="As a Sponsor"
+              link="/meetups"
+              linkText="Sponsor Us!"
+            >
+              <p>
+                Sponsors are a key part of our community, providing our members
+                with opportunities to learn about the latest technologies and
+                applications in data science. We are always looking for new
+                sponsors to help us grow our community and provide our members
+                with the best experience possible.
+              </p>
+            </BecomeInvolvedCard>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sponsors -->
+    <div class="index-block">
+      <div class="content">
+        <h3 class="subtitle">Our Sponsors</h3>
+        <div class="columns">
+          <div class="column">
+            <SponsorshipCard
+              title="AltaML"
+              link="https://www.altaml.com/"
+              image={AltaML_Logo}
+            />
+          </div>
+          <div class="column">
+            <SponsorshipCard
+              title="KPMG"
+              link="https://home.kpmg/ca/en/home.html"
+              image={KPMG_Logo}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </BaseLayout>
+
+<style>
+  .index-block {
+    padding: 1rem 10rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+  }
+
+  #community-overview-block {
+    background-color: #d9d9d9;
+  }
+</style>
