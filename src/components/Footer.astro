@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 
+import DiscordLogo from "../assets/dc.png";
+import LinkedInLogo from "../assets/ln.png";
+import GitHubLogo from "../assets/gh.png";
 ---
 
 <footer class="footer">
@@ -36,8 +40,8 @@
           <div class="column">
             <a href="/#">
               <!-- TODO: DISCORD LINK -->
-              <img
-                src="./src/assets/dc.png"
+              <Image
+                src={DiscordLogo}
                 width="54"
                 height="54"
                 alt="Edmonton Data Science Community - Discord"
@@ -49,8 +53,8 @@
           <div class="column">
             <a
               href="https://www.linkedin.com/company/edmonton-data-science-community/"
-              ><img
-                src="./src/assets/ln.png"
+              ><Image
+                src={LinkedInLogo}
                 width="48"
                 height="48"
                 alt="Edmonton Data Science Community - LinkedIn"
@@ -61,8 +65,8 @@
           <!-- GITHUB -->
           <div class="column">
             <a href="https://github.com/Edmonton-Data-Science-Community">
-              <img
-                src="./src/assets/gh.png"
+              <Image
+                src={GitHubLogo}
                 width="48"
                 height="48"
                 alt="Edmonton Data Science Community - GitHub"
