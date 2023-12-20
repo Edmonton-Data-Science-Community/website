@@ -1,9 +1,58 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const allMeetups = await Astro.glob("./meetups/*.md");
+const upcomingMeetups = allMeetups.filter((meetup) => {
+  return new Date(meetup.frontmatter.date) > new Date();
+});
+
+const pastMeetups = allMeetups.filter((meetup) => {
+  return new Date(meetup.frontmatter.date) < new Date();
+});
+
+upcomingMeetups.sort((a, b) => {
+  return (
+    new Date(a.frontmatter.date).valueOf() -
+    new Date(b.frontmatter.date).valueOf()
+  );
+});
+pastMeetups.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+  );
+});
+
 const pageTitle = "Meetups";
+
+const meetups = {
+  upcoming: ["Upcoming Meetups", upcomingMeetups],
+  past: ["Past Meetups", pastMeetups],
+};
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-
+  <div class="container has-text-left">
+    {
+      Object.entries(meetups).map(([key, [title, meetups]]) => (
+        <>
+          <h3 class="subtitle is-4">{title}</h3>
+          <div class="columns">
+            <div class="column is-5">
+              <div class="list">
+                <ul>
+                  {meetups.map((meetup) => (
+                    <li class="list-item">
+                      {meetup.frontmatter.date.slice(0, 10)}:{" "}
+                      <a href={meetup.url}>{meetup.frontmatter.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </>
+      ))
+    }
+  </div>
 </BaseLayout>
