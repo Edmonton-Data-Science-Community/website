@@ -1,27 +1,32 @@
 ---
-
-const { title, link, linkText} = Astro.props;
+const { title, link, linkText } = Astro.props;
 ---
 
-<div class="involved-card">
+<div class="card involved-card">
+  <div class="card-content is-flex-grow-1">
     <h4>{title}</h4>
     <slot />
+  </div>
 
-    <a class="button" href={link}>{linkText}</a>
+  <footer class="card-footer">
+    <a class="button card-footer-item" href={link}>{linkText}</a>
+  </footer>
 </div>
 
 <style>
-    .involved-card {
-        background-color: #BDE3FF;
-        border-radius: 5px;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
+  .involved-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #bde3ff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
 
-    .button {
-        background-color: #F55009;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 5px;
-    }
+  .button {
+    background-color: #f55009;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
 </style>

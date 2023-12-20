@@ -4,6 +4,10 @@
     height: 100vh;
 }
 
+.column .same-height {
+    height: 100%;
+}
+
 .navbar {
   background-color: #1e6d86;
 }

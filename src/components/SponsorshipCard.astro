@@ -4,17 +4,25 @@ import { Image } from "astro:assets";
 const { image, title, link } = Astro.props;
 ---
 
-<a href={link}>
-  <div class="sponsorship-card">
-    <Image class="sponsorship-logo" src={image} width="150" height="150" alt="KPMG Logo" />
-    <div class="content is-medium">
-        <h3 class="subtitle">{title}</h3>
+<div class="card sponsorship-card">
+  <a href={link}>
+    <div class="card-image">
+        <Image
+          class="sponsorship-logo"
+          src={image}
+          width="150"
+          height="150"
+          alt="KPMG Logo"
+        />
     </div>
-  </div>
-</a>
+    <footer class="card-footer">
+        <h3 class="card-footer-item">{title}</h3>        
+    </footer>
+  </a>
+</div>
 
 <style>
- .sponsorship-logo {
+  .sponsorship-logo {
     border-radius: 3%;
     margin-bottom: 1rem;
   }
