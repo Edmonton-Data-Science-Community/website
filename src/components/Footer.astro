@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import DiscordLogo from "../assets/dc.png";
 import LinkedInLogo from "../assets/ln.png";
@@ -7,6 +7,7 @@ import GitHubLogo from "../assets/gh.png";
 ---
 
 <footer class="footer">
+  <hr />
   <div class="has-text-centered">
     <div class="block">
       <div class="container is-max-desktop">
@@ -78,3 +79,22 @@ import GitHubLogo from "../assets/gh.png";
     </div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  #footer-links {
+    margin-bottom: 1rem;
+  }
+
+  #footer-socials {
+    margin-top: 1rem;
+  }
+
+  #footer-socials img {
+    margin: 0 0.5rem;
+  }
+</style>
