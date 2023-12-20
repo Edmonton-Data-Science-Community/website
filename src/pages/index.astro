@@ -6,15 +6,45 @@ import AltaML_Logo from "../assets/altaml_logo.jpg";
 import KPMG_Logo from "../assets/kpmg_logo.jpg";
 import { Image } from "astro:assets";
 import SponsorshipCard from "../components/SponsorshipCard.astro";
+import Slideshow from "../components/Slideshow.astro";
 
 const pageTitle = "Welcome to the Edmonton Data Science Community!";
+
+const images = [
+  {
+    id: "1owGOiL6bkfr7n7xmBqurI1K_eaxs0Tkt",
+    alt: "A man gesturing with his hands while asking questions to the speaker."
+  },
+  {
+    id: "1NdEy4WH_EKCAuogoPq16V_7SzOXjiy9M",
+    alt: "A group of people standing in a circle, talking to each other."
+  }
+];
+
+images.map((image) => {
+  image["url"] = `https://drive.google.com/uc?export=view&id=${image.id}`;
+});
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <!-- Slideshow of images from past meetups -->
   <div class="has-text-centered">
-    <div class="block"></div>
-
+  {(images.length == 0) ? 
+    <div class="notification is-warning">
+      <p>
+        No images have been added to the slideshow. To add images, add the
+        image's ID to the <code>image_ids</code> array in{" "}
+        <code>index.astro</code>.
+      </p>
+    </div>
+   : 
+    <Slideshow
+      images={images}
+      height="500px"
+      width="100%"
+      />
+  }
     <!-- Quick overview of community -->
     <div class="block index-block" id="community-overview-block">
       <div class="content">
