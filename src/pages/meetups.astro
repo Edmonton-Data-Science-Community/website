@@ -1,40 +1,73 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const allMeetups = await Astro.glob("./meetups/*.md");
+// Each meetup is an object with a date, title, and id
+// Each date must be in the form 'MM-DD-YYYY'
+const allMeetups = [
+  {
+    date: new Date("09-14-2023"),
+    title: "Holiday Networking!",
+    id: "295408222",
+  },
+  {
+    date: new Date("10-19-2023"),
+    title: "Innovations in Alzheimer's Dementia Detection",
+    id: "296625842",
+  },
+  {
+    date: new Date("11-16-2023"),
+    title: "Exploring AutoML",
+    id: "297271856",
+  },
+  {
+    date: new Date("12-07-2023"),
+    title: "AI Ethics and Data Dilemmas",
+    id: "297599801",
+  },
+];
+
+// Convert the 'id' field to a URL
+allMeetups.forEach((meetup) => {
+  meetup["url"] =
+    `https://www.meetup.com/edmontonunlimited/events/${meetup.id}/`;
+});
+
+let currentDate = new Date();
 const upcomingMeetups = allMeetups.filter((meetup) => {
-  return new Date(meetup.frontmatter.date) > new Date();
+  return meetup.date > currentDate;
 });
 
 const pastMeetups = allMeetups.filter((meetup) => {
-  return new Date(meetup.frontmatter.date) < new Date();
+  return meetup.date < currentDate;
 });
 
 upcomingMeetups.sort((a, b) => {
-  return (
-    new Date(a.frontmatter.date).valueOf() -
-    new Date(b.frontmatter.date).valueOf()
-  );
+  return a.date.valueOf() - b.date.valueOf();
 });
 pastMeetups.sort((a, b) => {
-  return (
-    new Date(b.frontmatter.date).valueOf() -
-    new Date(a.frontmatter.date).valueOf()
-  );
+  return a.date.valueOf() - b.date.valueOf();
 });
 
 const pageTitle = "Meetups";
 
 const meetups = {
-  upcoming: ["Upcoming Meetups", upcomingMeetups],
-  past: ["Past Meetups", pastMeetups],
+  "Upcoming Meetups": upcomingMeetups,
+  "Past Meetups": pastMeetups,
+};
+
+let dateOptions = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
 };
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="container has-text-left">
     {
-      Object.entries(meetups).map(([key, [title, meetups]]) => (
+      Object.entries(meetups).map(([title, meetups]) => (
+        // TODO: Add a check for if there are no meetups
         <>
           <h3 class="subtitle is-4">{title}</h3>
           <div class="columns">
@@ -43,8 +76,8 @@ const meetups = {
                 <ul>
                   {meetups.map((meetup) => (
                     <li class="list-item">
-                      {meetup.frontmatter.date.slice(0, 10)}:{" "}
-                      <a href={meetup.url}>{meetup.frontmatter.title}</a>
+                      {meetup.date.toLocaleDateString("en-US", dateOptions)}:{" "}
+                      <a href={meetup["url"]}>{meetup.title}</a>
                     </li>
                   ))}
                 </ul>
