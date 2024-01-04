@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+
+const { title, link, image, description, tags } = Astro.props;
+---
+
+<a href={link}>
+  <div class="card resource-card">
+    <!-- Resource Logo, if one was provided -->
+    {
+      typeof image == "undefined" ? (
+        ""
+      ) : (
+        <div class="card-image">
+          <Image
+            class="resource-image"
+            src={image}
+            width="150"
+            height="150"
+            alt="Resource Logo"
+          />
+        </div>
+      )
+    }
+
+    <!-- Resource Name & Description of resource -->
+    <div class="card-content is-flex-grow-1">
+      <div class="content">
+        <h4 class="subtitle">{title}</h4>
+        <p>{description}</p>
+      </div>
+    </div>
+
+    <!-- Resource Tags -->
+    <footer class="card-footer">
+      {tags.map((tag) => <span class="card-footer-item is-size-5">{tag}</span>)}
+    </footer>
+  </div>
+</a>
+
+<style>
+  .resource-image {
+    border-radius: 3%;
+    margin-bottom: 1rem;
+  }
+
+  .resource-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  /* Different effects on hover */
+  .resource-card:hover,
+  .resource-card:focus,
+  .resource-card:active {
+    color: #0070f3;
+    border-color: #0070f3;
+  }
+</style>

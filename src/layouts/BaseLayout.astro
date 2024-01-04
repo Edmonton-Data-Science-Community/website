@@ -19,7 +19,7 @@ const { pageTitle, align } = Astro.props;
 
     <Header />
     <div class="columns is-flex-direction-column is-fullheight-100vh">
-      <div class=`column ${typeof align === "undefined" ? "has-text-centered" : align }`>
+      <div class=`column ${typeof(align) === "undefined" ? "has-text-centered" : align }`>
         <div class="section">
           <h1 class="title">
             {pageTitle}

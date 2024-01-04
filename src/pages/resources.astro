@@ -1,9 +1,93 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ResourceCard from "../components/ResourceCard.astro";
 
 const pageTitle = "Resources";
+let JOB_HUNTING = "Job Hunting";
+let NETWORKING = "Networking";
+let REMOTE_WORK = "Remote Work";
+let EDUCATION = "Education";
+let EDMONTON_DEV = "Edmonton Dev";
+let STUDENTS = "Students";
+let tags = [
+  EDUCATION,
+  STUDENTS,
+  EDMONTON_DEV,
+  JOB_HUNTING,
+  NETWORKING,
+  REMOTE_WORK,
+];
+
+const links = [
+  {
+    title: "Remote Rocketship",
+    link: "https://www.remoterocketship.com/",
+    description: "Remote Rocketship is a job board for remote jobs in Canada.",
+    tags: [JOB_HUNTING, REMOTE_WORK],
+  },
+  {
+    title: "Working Nomads",
+    link: "https://www.workingnomads.com/jobs",
+    description: "Working Nomads is a job board for remote jobs.",
+    tags: [JOB_HUNTING, REMOTE_WORK],
+  },
+  {
+    title: "Flex Jobs",
+    link: "https://www.flexjobs.com/",
+    description: "FlexJobs is a job board for remote jobs.",
+    tags: [JOB_HUNTING, REMOTE_WORK],
+  },
+  {
+    title: "Undergraduate Artificial Intelligence Society",
+    link: "https://uais.dev/",
+    description:
+      "The Undergraduate AI Society is a student group at the University of Alberta that hosts events and workshops for students interested in AI.",
+    tags: [EDUCATION, STUDENTS],
+  },
+  {
+    title: "Edmonton Developer Meetups",
+    link: "https://www.meetup.com/edmontonunlimited/",
+    description:
+      "Edmonton Unlimited is a meetup group for developers in Edmonton. The Edmonton Data Science Community is a subgroup of Edmonton Unlimited.",
+    tags: [EDMONTON_DEV, EDUCATION, NETWORKING],
+  },
+];
+
+// Ensure consistent tag order
+links.forEach((l) => l.tags.sort());
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-
+  <div class="container">
+    {
+      tags.map((tag, i) => (
+        <>
+          {i !== 0 ? <hr class="resource-hr" /> : null}
+          <h3 class="title is-4">{tag}</h3>
+          <div class="columns ">
+            {links
+              .filter((link) => link.tags.includes(tag))
+              .map((link) => (
+                <div class="column">
+                  <ResourceCard
+                    link={link.link}
+                    image={link["image"]}
+                    tags={link.tags}
+                    title={link.title}
+                    description={link.description}
+                  />
+                </div>
+              ))}
+          </div>
+        </>
+      ))
+    }
+  </div>
 </BaseLayout>
+
+<style>
+  .resource-hr {
+    margin-bottom: 2rem;
+    background-color: #c9c4c4;
+  }
+</style>
