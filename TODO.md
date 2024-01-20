@@ -15,4 +15,3 @@
 - Code of Conduct Page
 - Contact Page
 - Social Media Page
-- Discord Link
