@@ -1,6 +1,7 @@
 ## High Priority
 - Secure domain
 - Update Logo
+- Update fonts & colour schemes to match Peter's document.
 
 ## Medium Priority
 - Code of Conduct
@@ -14,4 +15,3 @@
 - Code of Conduct Page
 - Contact Page
 - Social Media Page
-- Discord Link
