@@ -1,0 +1,64 @@
+---
+const { name, role, bio, image, contacts } = Astro.props;
+import { Image } from "astro:assets";
+import linkedInIcon from "../assets/ln.png";
+import githubIcon from "../assets/gh.png";
+---
+
+<div class="card bio-card">
+  <div class="card-image team-image-wrapper">
+    <Image src={image} alt={name} class="team-member-image" />
+  </div>
+  <div class="hline"></div>
+  <div class="card-content ">
+    <p class="subtitle is-5">
+      {name}
+    </p>
+    <p class="subtitle is-6">
+      {role}
+    </p>
+    <p class="subtitle is-7">
+      {bio}
+    </p>
+  </div>
+  <div class="card-footer">
+    {
+      contacts.map((contact) => (
+        <a class="card-footer-item" href={contact.url} target="_blank">
+          {contact.type === "linkedin" && (
+            <Image src={linkedInIcon} height="40" alt="LinkedIn" />
+          )}
+          {contact.type === "github" && (
+            <Image src={githubIcon} height="40" alt="GitHub" />
+          )}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .bio-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hline {
+    border-top: 1px solid #dbdbdb;
+    margin: 0 1rem;
+  }
+
+  .team-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    height: 200px;
+  }
+
+  .team-member-image {
+    border-radius: 50% !important;
+    max-width: 50%;
+  }
+</style>

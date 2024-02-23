@@ -1,7 +1,7 @@
 ## High Priority
 - Secure domain
 - Update Logo
-- Update fonts & colour schemes to match Peter's document.
+- Update fonts & colour schemes to match Jeff's document.
 
 ## Medium Priority
 - Code of Conduct

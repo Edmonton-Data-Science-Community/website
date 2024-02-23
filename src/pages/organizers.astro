@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BioCard from "../components/BioCard.astro";
+
+import steveKwan from "../assets/headshots/steve-kwan.png";
+import talatSyed from "../assets/headshots/talat-syed.jpeg";
+import paulSaunders from "../assets/headshots/paul-saunders.png";
+
+const pageTitle = "EDSC Organizers and Volunteers";
+
+const bios = [
+  {
+    name: "Steve Kwan",
+    role: "Organizer",
+    bio: "",
+    image: steveKwan,
+    contacts: [
+      {
+        type: "linkedin",
+        url: "#",
+      },
+      {
+        type: "github",
+        url: "#",
+      },
+    ],
+  },
+  {
+    name: "Talat Syed",
+    role: "Organizer",
+    bio: "",
+    image: talatSyed,
+    contacts: [],
+  },
+  {
+    name: "Paul Saunders",
+    role: "Organizer",
+    bio: "",
+    image: paulSaunders,
+    contacts: [
+      {
+        type: "linkedin",
+        url: "#",
+      },
+      {
+        type: "github",
+        url: "#",
+      },
+    ],
+  },
+];
+
+// Ensure all bios have name, role, bio, image
+console.assert(
+  bios.every(
+    (bio) => bio.name && bio.role && bio.bio && bio.image && bio.contacts
+  )
+);
+
+// Ensure all contacts have type and url, and that type is either "linkedin" or "github"
+const allowedContactTypes = ["linkedin", "github"];
+console.assert(
+  bios.every((bio) =>
+    bio.contacts.every(
+      (contact) => allowedContactTypes.includes(contact.type) && contact.url
+    )
+  )
+);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <div class="content">
+      <h3 class="subtitle">Organizers</h3>
+      <hr />
+      <div class="columns is-flex is-vcentered is-multiline">
+        {
+          bios.map((bio) => (
+            <div class="column is-3">
+              <BioCard
+                name={bio.name}
+                role={bio.role}
+                bio={bio.bio}
+                image={bio.image}
+                contacts={bio.contacts}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>
