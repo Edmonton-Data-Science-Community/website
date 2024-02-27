@@ -5,14 +5,18 @@ import BioCard from "../components/BioCard.astro";
 import steveKwan from "../assets/headshots/steve-kwan.png";
 import talatSyed from "../assets/headshots/talat-syed.jpeg";
 import paulSaunders from "../assets/headshots/paul-saunders.png";
+import thiagoValentin from "../assets/headshots/thiago-valentin.jpg";
+import jennyChunChiLien from "../assets/headshots/jenny-chun-chi-lien.jpg"; 
+import marcinMizianty from "../assets/headshots/marcin-mizianty.jpg";
 
 const pageTitle = "EDSC Organizers and Volunteers";
 
 const bios = [
   {
     name: "Steve Kwan",
+    type: "Organizer",
     role: "Organizer",
-    bio: "",
+    bio: "Manager, Information Management & Data Analytics at KPMG Canada",
     image: steveKwan,
     contacts: [
       {
@@ -27,16 +31,78 @@ const bios = [
   },
   {
     name: "Talat Syed",
+    type: "Organizer",
     role: "Organizer",
-    bio: "",
+    bio: "Product Manager",
     image: talatSyed,
-    contacts: [],
+    contacts: [
+      {
+        type: "linkedin",
+        url: "#",
+      },
+      {
+        type: "github",
+        url: "#",
+      },
+    ],
   },
   {
     name: "Paul Saunders",
+    type: "Organizer",
     role: "Organizer",
-    bio: "",
+    bio: "Computing Science M.Sc student at the University of Alberta.",
     image: paulSaunders,
+    contacts: [
+      {
+        type: "linkedin",
+        url: "#",
+      },
+      {
+        type: "github",
+        url: "#",
+      },
+    ],
+  },
+  {
+    name: "Thiago Valentin",
+    type: "Organizer",
+    role: "Organizer",
+    bio: "Data Scientist at GoAuto",
+    image: thiagoValentin,
+    contacts: [
+      {
+        type: "linkedin",
+        url: "#",
+      },
+      {
+        type: "github",
+        url: "#",
+      },
+    ],
+  },
+  {
+    name: "Jenny Chun Chi Liien",
+    type: "Organizer",
+    role: "Organizer",
+    bio: "Manager of Data Science, Talent Accelerator at AltaML",
+    image: jennyChunChiLien,
+    contacts: [
+      {
+        type: "linkedin",
+        url: "#",
+      },
+      {
+        type: "github",
+        url: "#",
+      },
+    ],
+  },
+  {
+    name: "Marcin Mizianty",
+    type: "Organizer",
+    role: "Organizer",
+    bio: "VP of Data Science at AltaML",
+    image: marcinMizianty,
     contacts: [
       {
         type: "linkedin",
@@ -66,6 +132,9 @@ console.assert(
     )
   )
 );
+
+const organizers = bios.filter((bio) => bio.type === "Organizer");
+const volunteers = bios.filter((bio) => bio.type === "Volunteer");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -73,9 +142,9 @@ console.assert(
     <div class="content">
       <h3 class="subtitle">Organizers</h3>
       <hr />
-      <div class="columns is-flex is-vcentered is-multiline">
+      <div class="columns is-flex is-multiline">
         {
-          bios.map((bio) => (
+          organizers.map((bio) => (
             <div class="column is-3">
               <BioCard
                 name={bio.name}
@@ -87,6 +156,25 @@ console.assert(
             </div>
           ))
         }
+      </div>
+      <div class="content">
+        <h3 class="subtitle">Volunteers</h3>
+        <hr />
+        <p>Coming soon...</p>
+        <!-- <div class="columns is-flex is-multiline">
+          {
+            volunteers.map((bio) => (
+              <div class="column is-3">
+                <BioCard
+                  name={bio.name}
+                  role={bio.role}
+                  bio={bio.bio}
+                  image={bio.image}
+                  contacts={bio.contacts}
+                />
+              </div>
+            ))
+          } -->
       </div>
     </div>
   </div>
