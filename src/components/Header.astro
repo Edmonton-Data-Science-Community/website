@@ -5,14 +5,13 @@ import logoPath from "../assets/cropped-logo.png";
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <figure class="image">
-        <Image
+    <a class="navbar-item" id="navbar-logo" href="/">
+        <img
           id="header-logo"
-          src={logoPath}
+          src={logoPath.src}
           alt="Edmonton Data Science Community - Logo"
+          style="height: auto; max-height: 3rem;"
         />
-      </figure>
     </a>
 
     <a
@@ -45,3 +44,7 @@ import logoPath from "../assets/cropped-logo.png";
     </div>
   </div>
 </nav>
+
+<style>
+
+</style>

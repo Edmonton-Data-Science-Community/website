@@ -16,6 +16,8 @@ hr {
 .navbar {
   background-color: #2A64F1;
   font-family: "Monomaniac One", sans-serif;
+  font-size: 1.3rem;
+  height: 80px;
 }
 
 .navbar-item {
@@ -28,7 +30,8 @@ hr {
 }
 
 #header-logo {
-  border-radius: 10%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* Footer stuff */
