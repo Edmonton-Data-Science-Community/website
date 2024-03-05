@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import discordImage from "../assets/dc.png";
+import githubImage from "../assets/gh.png";
+import linkedinImage from "../assets/ln.png";
+
+const pageTitle = "Get involved with the Edmonton Data Science Community!";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="columns is-8 is-variable">
+          <div class="column is-two-thirds has-text-left">
+            <h1 class="title is-1">Contact Us</h1>
+            <p class="is-size-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+              eligendi soluta voluptate facere molestiae consequatur.
+            </p>
+            <div class="social-media">
+              <a href="#" target="_blank" class="button is-light is-large"
+                ><img
+                  src={discordImage.src}
+                  alt="Discord Logo"
+                  class="socials-image"
+                /></a
+              >
+              <a
+                href="https://github.com/Edmonton-Data-Science-Community"
+                target="_blank"
+                class="button is-light is-large"
+                ><img
+                  src={githubImage.src}
+                  alt="Discord Logo"
+                  class="socials-image"
+                /></a
+              >
+              <a
+                href="https://www.linkedin.com/company/edmonton-data-science-community/"
+                target="_blank"
+                class="button is-light is-large"
+                ><img
+                  src={linkedinImage.src}
+                  alt="Discord Logo"
+                  class="socials-image"
+                /></a
+              >
+            </div>
+          </div>
+          <div class="column is-one-third has-text-left">
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input is-medium" type="text" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input is-medium" type="text" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Message</label>
+              <div class="control">
+                <textarea class="textarea is-medium"></textarea>
+              </div>
+            </div>
+            <div class="control">
+              <button
+                type="submit"
+                class="button is-link is-fullwidth has-text-weight-medium is-medium"
+                >Send Message</button
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .socials-image {
+    height: 3rem;
+  }
+</style>
