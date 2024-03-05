@@ -12,7 +12,13 @@ const { pageTitle, align } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="referrer" content="no-referrer" />
-    <title>{pageTitle}</title>
+    {
+      pageTitle.length != 0 ? (
+        <title>{pageTitle}</title>
+      ) : (
+        <title>Edmonton Data Science Community</title>
+      )
+    }
   </head>
   <body>
     <!-- Making footer stick to the bottom of the page -->
@@ -20,7 +26,9 @@ const { pageTitle, align } = Astro.props;
 
     <Header />
     <div class="columns is-flex-direction-column is-fullheight-100vh">
-      <div class=`column ${typeof(align) === "undefined" ? "has-text-centered" : align }`>
+      <div
+        class=`column ${typeof(align) === "undefined" ? "has-text-centered" : align }`
+      >
         <div class="section">
           <h1 class="title">
             {pageTitle}

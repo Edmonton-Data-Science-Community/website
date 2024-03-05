@@ -14,6 +14,5 @@
     - Images & Bios
 - Code of Conduct Page
 - Contact Page
-- Social Media Page
 
 https://bulmatemplates.github.io/bulma-templates/
