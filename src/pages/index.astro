@@ -8,26 +8,21 @@ import { Image } from "astro:assets";
 import SponsorshipCard from "../components/SponsorshipCard.astro";
 import Slideshow from "../components/Slideshow.astro";
 
+import presenter from "../assets/events/sep-2024/Img 26.jpg";
+import circleGroup from "../assets/events/oct-2024/Img 25.jpg";
+
 const pageTitle = "Welcome to the Edmonton Data Science Community!";
 
 const images = [
   {
-    id: "1owGOiL6bkfr7n7xmBqurI1K_eaxs0Tkt",
-    alt: "A man gesturing with his hands while asking questions to the speaker."
+    img: presenter,
+    alt: "A woman standing at a podium, talking into a microphone with her right hand waving."
   },
-  {
-    id: "1NdEy4WH_EKCAuogoPq16V_7SzOXjiy9M",
+  { 
+    img: circleGroup,
     alt: "A group of people standing in a circle, talking to each other."
   },
-  {
-    id: "1UZ7sXJfoqxKaGuJdO8GYJ5HXORKphaC_",
-    alt: "A woman standing at a podium, talking into a microphone with her right hand waving."
-  }
 ];
-
-images.map((image) => {
-  image["url"] = `https://drive.google.com/uc?export=view&id=${image.id}`;
-});
 
 ---
 
