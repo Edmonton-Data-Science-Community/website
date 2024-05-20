@@ -10,7 +10,6 @@
 ## Low Priority
 - Organizers & Volunteers Page
     - Images & Bios
-- Code of Conduct Page
-- Contact Page
+- Hook up get involved & contact pages to email.
 
 https://bulmatemplates.github.io/bulma-templates/

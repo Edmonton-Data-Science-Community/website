@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What is the Edmonton Data Science Community?",
+    "answer": "The Edmonton Data Science Community is a group dedicated to fostering collaboration, knowledge sharing, and networking among data science professionals, academics, and enthusiasts in Edmonton. We host events featuring expert speakers, hands-on workshops, and networking opportunities.",
+    "categories": ["General"]
+  },
+  {
+    "question": "How can I join the Edmonton Data Science Community?",
+    "answer": "You can join our community by signing up on our [Meetup page](https://www.meetup.com/Edmonton-Data-Science-Meetup/). You'll receive notifications about upcoming events and can RSVP to those that interest you.",
+    "categories": ["General"]
+  },
+  {
+    "question": "Are there any membership fees?",
+    "answer": "No, there are no membership fees to join the Edmonton Data Science Community. Our events are typically free to attend, thanks to the support of our sponsors.",
+    "categories": ["General"]
+  },
+  {
+    "question": "Who can attend the events?",
+    "answer": "Our events are open to everyone with an interest in data science, whether you're a seasoned professional, a student, or just curious about the field. We welcome participants from all backgrounds and levels of expertise.",
+    "categories": ["General"]
+  },
+  {
+    "question": "How often do you hold events?",
+    "answer": "We aim to hold events on a regular basis, typically once a month. The exact frequency can vary based on speaker availability and community feedback.",
+    "categories": ["Event Details"]
+  },
+  {
+    "question": "Where are the events held?",
+    "answer": "Our events are usually held at various venues around Edmonton, such as Norquest College. Specific details about the location of each event are provided in the event description on our Meetup page.",
+    "categories": ["Event Details"]
+  },
+  {
+    "question": "What types of events do you host?",
+    "answer": "We host a variety of events, including presentations by industry experts, hands-on workshops, project showcases, and networking sessions. Each event is designed to provide valuable learning opportunities and foster community connections.",
+    "categories": ["Event Details"]
+  },
+  {
+    "question": "Do I need to RSVP for events?",
+    "answer": "Yes, we encourage you to RSVP for events on our Meetup page. This helps us plan for the number of attendees and ensure we have adequate space and resources.",
+    "categories": ["Participation"]
+  },
+  {
+    "question": "Can I bring a guest to an event?",
+    "answer": "Absolutely! Feel free to bring friends or colleagues who are interested in data science. Just make sure they also RSVP on our Meetup page if possible.",
+    "categories": ["Participation"]
+  },
+  {
+    "question": "What should I bring to an event?",
+    "answer": "For most events, all you need to bring is yourself and a willingness to learn. If the event is a hands-on workshop, you may be asked to bring a laptop. Check the event description for any specific requirements.",
+    "categories": ["Participation"]
+  },
+  {
+    "question": "How can I become a speaker at one of your events?",
+    "answer": "If you're interested in speaking at one of our events, please reach out to us through the contact form on our website or send us a message via our Meetup page. We'd love to hear about your experience and the topics you can present.",
+    "categories": ["Sponsorship"]
+  },
+  {
+    "question": "How can my company become a sponsor?",
+    "answer": "We welcome sponsorships from organizations interested in supporting the Edmonton Data Science Community. Please contact us via our website or Meetup page to discuss sponsorship opportunities and benefits.",
+    "categories": ["Sponsorship"]
+  },
+  {
+    "question": "Is there a way to stay updated on upcoming events and news?",
+    "answer": "Yes, you can stay updated by joining our Meetup group, following us on social media, and subscribing to our newsletter. This way, you'll never miss an event announcement or important community update.",
+    "categories": ["Misc."]
+  },
+  {
+    "question": "Can I suggest topics for future events?",
+    "answer": "Absolutely! We value input from our community members. If you have suggestions for event topics or speakers, please share them with us through our contact form or at one of our events.",
+    "categories": ["Misc."]
+  },
+  {
+    "question": "I’m new to data science. Will I fit in?",
+    "answer": "Yes! Our community is very welcoming, and we have members with varying levels of experience. Whether you’re just starting out or are an experienced data scientist, you’ll find our events beneficial and enjoyable.",
+    "categories": ["Misc."]
+  },
+  {
+    "question": "How can I network with other members?",
+    "answer": "Our events typically include dedicated networking time, where you can meet and interact with other members. Additionally, you can join our Slack and Discord channels to stay connected and engage with the community online.",
+    "categories": ["Misc."]
+  }
+]

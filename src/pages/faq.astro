@@ -2,8 +2,185 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Frequently Asked Questions";
+
+const categories = [
+  "General",
+  "Event Details",
+  "Participation",
+  "Sponsorship",
+  "Misc.",
+];
+import faqs from "../assets/data/faqs.json";
+
+// Assert each FAQ has a question, answer, and an array of categories for filtering
+faqs.forEach((faq) => {
+  if (!faq.question || !faq.answer) {
+    throw new Error("Each FAQ must have a question and an answer");
+  }
+
+  if (
+    !Array.isArray(faq.categories) ||
+    faq.categories.length === 0 ||
+    faq.categories.some((c) => !categories.includes(c))
+  ) {
+    throw new Error(
+      "Each FAQ must have an array of categories, and they must be any of: '" +
+        categories.join(", ") +
+        "'"
+    );
+  }
+});
+
+// make each faq visible on load by default
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <p class="control has-icons-left">
+      <input id="search-bar" class="input" type="text" placeholder="Search" />
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
 
+    <!-- Panel tabs -->
+    <p class="tabs is-medium">
+      <a class="is-active" id="all">All</a>
+      {
+        categories.map((category) => (
+          <a id={category.toLowerCase().replace(" ", "-")}>{category}</a>
+        ))
+      }
+    </p>
+
+    <!-- Actual frequently asked questions -->
+    {
+      faqs.map((faq) => (
+        <div class="faq">
+          <button class="question">
+            {faq.categories.map((category) => (
+              <span class="tag">{category}</span>
+            ))}
+
+            <span class="icon">
+              <i class="fa-solid fa-circle-question" />
+            </span>
+            {faq.question}
+          </button>
+          <div class="answer">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll(".question").forEach((faq) => {
+    faq.addEventListener("click", function () {
+      /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+      this.classList.toggle("active");
+
+      /* Toggle between hiding and showing the active panel */
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+
+  document.querySelectorAll(".tabs a").forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      // remove the active class from the currently active tab and add it to the clicked tab
+      document.querySelector(".tabs a.is-active").classList.remove("is-active");
+      e.target.classList.add("is-active");
+
+      let searchText = document
+        .querySelector("#search-bar")
+        .value.toLowerCase();
+      let panelText = e.target.innerText;
+      updateVisibleFAQs(panelText, searchText);
+    });
+  });
+
+  document.querySelector("#search-bar").addEventListener("input", (e) => {
+    const searchText = e.target.value.toLowerCase();
+    const panelText = document.querySelector(".tabs a.is-active").innerText;
+    updateVisibleFAQs(panelText, searchText);
+  });
+
+  function updateVisibleFAQs(panelText, searchText) {
+    console.log(panelText, searchText);
+    document.querySelectorAll(".faq").forEach((faq) => {
+      let searched = faq
+        .querySelector("span.question")
+        .innerText.toLowerCase()
+        .includes(searchText);
+      if (!searched) {
+        faq.style.display = "none";
+        return;
+      }
+
+      let shouldDisplay = false;
+
+      faq.querySelectorAll("span.tag").forEach((tag) => {
+        if (tag.innerText === panelText || panelText === "All") {
+          shouldDisplay = true;
+        }
+      });
+
+      if (shouldDisplay) {
+        faq.style.display = "";
+      } else {
+        faq.style.display = "none";
+      }
+    });
+  }
+</script>
+
+<style>
+  .tag {
+    display: none;
+  }
+
+  .faq * {
+    font-size: 1.2rem;
+  }
+
+  .question {
+    background-color: #bde3ff;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+
+  /* Style the accordion panel. Note: hidden by default */
+  .answer {
+    padding: 0 25px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .question:after {
+    content: "\02795"; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+</style>
