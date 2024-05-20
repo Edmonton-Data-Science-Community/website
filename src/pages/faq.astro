@@ -44,14 +44,18 @@ faqs.forEach((faq) => {
     </p>
 
     <!-- Panel tabs -->
-    <p class="tabs is-medium">
-      <a class="is-active" id="all">All</a>
-      {
-        categories.map((category) => (
-          <a id={category.toLowerCase().replace(" ", "-")}>{category}</a>
-        ))
-      }
-    </p>
+    <div class="tabs is-medium is-centered">
+      <ul>
+        <li><a class="is-active" id="all">All</a></li>
+        {
+          categories.map((category) => (
+            <li id={category.toLowerCase().replace(" ", "-")}>
+              <a>{category}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
 
     <!-- Actual frequently asked questions -->
     {
@@ -77,6 +81,9 @@ faqs.forEach((faq) => {
 </BaseLayout>
 
 <script>
+  /**
+   * Add the listener to each FAQ to toggle the visibility of the answer panel
+   */
   document.querySelectorAll(".question").forEach((faq) => {
     faq.addEventListener("click", function () {
       /* Toggle between adding and removing the "active" class,
@@ -93,6 +100,9 @@ faqs.forEach((faq) => {
     });
   });
 
+  /**
+   * Update the visibility of the FAQs when a panel is clicked
+   */
   document.querySelectorAll(".tabs a").forEach((tab) => {
     tab.addEventListener("click", (e) => {
       // remove the active class from the currently active tab and add it to the clicked tab
@@ -107,17 +117,24 @@ faqs.forEach((faq) => {
     });
   });
 
+  /**
+   * Update the visibility of the FAQs when the search bar is updated
+   */
   document.querySelector("#search-bar").addEventListener("input", (e) => {
     const searchText = e.target.value.toLowerCase();
     const panelText = document.querySelector(".tabs a.is-active").innerText;
     updateVisibleFAQs(panelText, searchText);
   });
 
+  /**
+   * Update the visibility of the FAQs based on the currently active panel and the search text
+   * @param panelText The text of the currently active panel
+   * @param searchText The text in the search bar
+   */
   function updateVisibleFAQs(panelText, searchText) {
-    console.log(panelText, searchText);
     document.querySelectorAll(".faq").forEach((faq) => {
       let searched = faq
-        .querySelector("span.question")
+        .querySelector("button.question")
         .innerText.toLowerCase()
         .includes(searchText);
       if (!searched) {
@@ -163,7 +180,7 @@ faqs.forEach((faq) => {
     transition: 0.4s;
   }
 
-  /* Style the accordion panel. Note: hidden by default */
+  /* Style the answer panel. Note: hidden by default */
   .answer {
     padding: 0 25px;
     background-color: white;
