@@ -141,11 +141,14 @@ const volunteers = bios.filter((bio) => bio.type === "Volunteer");
   <div class="container">
     <div class="content">
       <h3 class="subtitle">Organizers</h3>
-      <hr />
-      <div class="columns is-flex is-multiline">
+    </div>
+    <hr />
+    <!-- <div class="fixed-grid has-4-cols"> -->
+      <div class="grid is-col-min-11">
         {
           organizers.map((bio) => (
-            <div class="column is-3">
+            <div class="cell">
+              {/* here */}
               <BioCard
                 name={bio.name}
                 role={bio.role}
@@ -156,26 +159,26 @@ const volunteers = bios.filter((bio) => bio.type === "Volunteer");
             </div>
           ))
         }
-      </div>
-      <div class="content">
-        <h3 class="subtitle">Volunteers</h3>
-        <hr />
-        <p>Coming soon...</p>
-        <!-- <div class="columns is-flex is-multiline">
-          {
-            volunteers.map((bio) => (
-              <div class="column is-3">
-                <BioCard
-                  name={bio.name}
-                  role={bio.role}
-                  bio={bio.bio}
-                  image={bio.image}
-                  contacts={bio.contacts}
-                />
-              </div>
-            ))
-          } -->
-      </div>
+      <!-- </div> -->
     </div>
+    <div class="content">
+        <h3 class="subtitle">Volunteers</h3>
+    </div> 
+    <hr />
+    <p>Coming soon...</p>
+    <!-- <div class="columns is-flex is-multiline">
+      {
+        volunteers.map((bio) => (
+          <div class="column is-3">
+            <BioCard
+              name={bio.name}
+              role={bio.role}
+              bio={bio.bio}
+              image={bio.image}
+              contacts={bio.contacts}
+            />
+          </div>
+        ))
+      } -->
   </div>
 </BaseLayout>
