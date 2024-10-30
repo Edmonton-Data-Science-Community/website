@@ -1,17 +1,17 @@
 [
   {
-    "question": "What is the Edmonton Data Science Community?",
-    "answer": "The Edmonton Data Science Community is a group dedicated to fostering collaboration, knowledge sharing, and networking among data science professionals, academics, and enthusiasts in Edmonton. We host events featuring expert speakers, hands-on workshops, and networking opportunities.",
+    "question": "What is the Edmonton Data Society?",
+    "answer": "The Edmonton Data Society is a group dedicated to fostering collaboration, knowledge sharing, and networking among data science professionals, academics, and enthusiasts in Edmonton. We host events featuring expert speakers, hands-on workshops, and networking opportunities.",
     "categories": ["General"]
   },
   {
-    "question": "How can I join the Edmonton Data Science Community?",
+    "question": "How can I join the Edmonton Data Society?",
     "answer": "You can join our community by signing up on our [Meetup page](https://www.meetup.com/Edmonton-Data-Science-Meetup/). You'll receive notifications about upcoming events and can RSVP to those that interest you.",
     "categories": ["General"]
   },
   {
     "question": "Are there any membership fees?",
-    "answer": "No, there are no membership fees to join the Edmonton Data Science Community. Our events are typically free to attend, thanks to the support of our sponsors.",
+    "answer": "No, there are no membership fees to join the Edmonton Data Society. Our events are typically free to attend, thanks to the support of our sponsors.",
     "categories": ["General"]
   },
   {
@@ -56,7 +56,7 @@
   },
   {
     "question": "How can my company become a sponsor?",
-    "answer": "We welcome sponsorships from organizations interested in supporting the Edmonton Data Science Community. Please contact us via our website or Meetup page to discuss sponsorship opportunities and benefits.",
+    "answer": "We welcome sponsorships from organizations interested in supporting the Edmonton Data Society. Please contact us via our website or Meetup page to discuss sponsorship opportunities and benefits.",
     "categories": ["Sponsorship"]
   },
   {

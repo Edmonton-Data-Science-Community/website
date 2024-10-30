@@ -5,6 +5,7 @@
 - Code of Conduct
 - Resources Page
 - Get Involved Page
+- Figure out which sponsors to use on the index page
 
 ## Low Priority
 - Organizers & Volunteers Page
