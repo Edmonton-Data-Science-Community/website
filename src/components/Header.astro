@@ -6,12 +6,12 @@ import logoPath from "../assets/cropped-logo.png";
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" id="navbar-logo" href="/">
-        <img
-          id="header-logo"
-          src={logoPath.src}
-          alt="Edmonton Data Science Community - Logo"
-          style="height: auto; max-height: 3rem;"
-        />
+      <img
+        id="header-logo"
+        src={logoPath.src}
+        alt="Edmonton Data Science Community - Logo"
+        style="height: auto; max-height: 3rem;"
+      />
     </a>
 
     <a
@@ -24,10 +24,14 @@ import logoPath from "../assets/cropped-logo.png";
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </a>
   </div>
 
   <div id="edsc-navbar" class="navbar-menu">
+    <div class="navbar-start">
+
+    </div>
     <div class="navbar-end">
       <div class="navbar-item">
         <a href="/meetups/">Meetups</a>
@@ -45,6 +49,27 @@ import logoPath from "../assets/cropped-logo.png";
   </div>
 </nav>
 
-<style>
+<!-- <style></style> -->
 
-</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(
+      document.querySelectorAll(".navbar-burger"),
+      0,
+    );
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach((el) => {
+      el.addEventListener("click", () => {
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle("is-active");
+        $target.classList.toggle("is-active");
+      });
+    });
+  });
+</script>

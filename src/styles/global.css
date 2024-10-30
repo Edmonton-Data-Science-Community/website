@@ -9,7 +9,7 @@ body {
   font-family: Calibri;
 }
 
-hr {
+hr, .navbar-menu {
   background-color: #2A64F1;
 }
 
