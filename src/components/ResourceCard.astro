@@ -33,7 +33,12 @@ const { title, link, image, description, tags } = Astro.props;
 
     <!-- Resource Tags -->
     <footer class="card-footer">
-      {tags.map((tag) => <span class="card-footer-item is-size-5">{tag}</span>)}
+      <div class="columns"></div>
+      {
+        tags.map((tag) => (
+          <span class="column card-footer-item is-size-5">{tag}</span>
+        ))
+      }
     </footer>
   </div>
 </a>
@@ -59,7 +64,7 @@ const { title, link, image, description, tags } = Astro.props;
   .resource-card:hover,
   .resource-card:focus,
   .resource-card:active {
-    color: #2A64F1;
-    border-color: #2A64F1;
+    color: #2a64f1;
+    border-color: #2a64f1;
   }
 </style>

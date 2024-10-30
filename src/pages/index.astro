@@ -16,68 +16,68 @@ const pageTitle = "Welcome to the Edmonton Data Science Community!";
 const images = [
   {
     img: presenter,
-    alt: "A woman standing at a podium, talking into a microphone with her right hand waving."
+    alt: "A woman standing at a podium, talking into a microphone with her right hand waving.",
   },
-  { 
+  {
     img: circleGroup,
-    alt: "A group of people standing in a circle, talking to each other."
+    alt: "A group of people standing in a circle, talking to each other.",
   },
 ];
-
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <!-- Slideshow of images from past meetups -->
   <div class="has-text-centered">
-  {(images.length == 0) ? 
-    <div class="notification is-warning">
-      <p>
-        No images have been added to the slideshow. To add images, add the
-        image's ID to the <code>image_ids</code> array in{" "}
-        <code>index.astro</code>.
-      </p>
-    </div>
-   : 
-    <Slideshow
-      images={images}
-      height="500px"
-      width="100%"
-      />
-  }
-    <!-- Quick overview of community -->
-    <div class="block index-block" id="community-overview-block">
-      <div class="content">
-        <div class="content">
-          <h3 class="subtitle">What is the Edmonton Data Science Community?</h3>
-        </div>
-        <div class="content is-medium">
+    {
+      images.length == 0 ? (
+        <div class="notification is-warning">
           <p>
-            The Edmonton Data Science Community is a group of data science
-            enthusiasts who meet regularly to discuss data science topics,
-            network, and learn from each other. We are a community of
-            professionals, academics, and students who are passionate about data
-            science and its applications.
+            No images have been added to the slideshow. To add images, add the
+            image's ID to the <code>image_ids</code> array in{" "}
+            <code>index.astro</code>.
           </p>
         </div>
-        <div class="content is-medium">
-          <p>Join us on Discord!<br /></p>
-          <a href="/#">
-            <!-- TODO: DISCORD LINK -->
-            <Image
-              src={DiscordLogo}
-              width="64"
-              height="64"
-              alt="Edmonton Data Science Community - Discord"
-            /></a
-          >
+      ) : (
+        <Slideshow images={images} height="500px" width="100%" />
+      )
+    }
+    <!-- Quick overview of community -->
+    <div class="container narrow">
+      <div class="block">
+        <div class="card involved-card" id="about-card">
+          <div class="card-content content is-flex-grow-1">
+            <h3 class="subtitle">What is the Edmonton Data Science Community?</h3>
+            <p>
+              The Edmonton Data Science Community is a group of data science
+              enthusiasts who meet regularly to discuss data science topics,
+              network, and learn from each other. We are a community of
+              professionals, academics, and students who are passionate about
+              data science and its applications.
+            </p>
+          </div>
+        
+          <footer class="card-footer">
+            <div class="card-footer-item is-medium">
+              <!-- <p>Join us on Discord!<br /></p> -->
+              <a href="/#">
+                <!-- TODO: DISCORD LINK -->
+                <Image
+                  src={DiscordLogo}
+                  width="64"
+                  height="64"
+                  alt="Edmonton Data Science Community - Discord"
+                /></a
+              >
+            </div>
+          </footer>
         </div>
       </div>
-    </div>
 
-    <!-- Become involved -->
-    <div class="block index-block">
-      <div class="content">
-        <h3 class="subtitle">Become Involved!</h3>
+      <!-- Become involved -->
+      <div class="block">
+        <div class="content">
+          <h3 class="subtitle">Become Involved!</h3>
+        </div>
         <div class="columns">
           <div class="column is-flex">
             <BecomeInvolvedCard
@@ -124,10 +124,8 @@ const images = [
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Sponsors -->
-    <div class="index-block">
+      <!-- Sponsors -->
       <div class="content">
         <h3 class="subtitle">Our Sponsors</h3>
         <div class="columns">
@@ -158,6 +156,11 @@ const images = [
     margin: 1rem;
   }
 
+  #about-card {
+    background-color: #bde3ff;
+  }
+
+  
   #community-overview-block {
     background-color: #d9d9d9;
   }
